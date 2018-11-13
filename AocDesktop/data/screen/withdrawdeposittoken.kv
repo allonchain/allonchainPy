@@ -1,0 +1,165 @@
+ShowcaseScreen:
+    name: 'WithdrawDepositToken'
+    __safe_id: [dropdown.__self__]
+
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_y: None
+        height: '400dp'
+
+        canvas:
+            Color:
+                rgb: (.7, .7, .7)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        BoxLayout:
+            size_hint_y: None
+            height: '40 dp'
+            Label:
+                size_hint_y: None
+                font_size: '16dp'
+                height: '35dp'
+                text: 'You have '
+                color: 0,0,0,1
+            Label:
+                id:tokenamount
+                markup: True
+                size_hint_y: None
+                font_size: '16dp'
+                height: '35dp'
+                text: ''
+                color: 0.3,0.6,0.4,1
+            Button:
+                id: btn
+                text: 'Select Token'
+                on_release: dropdown.open(self)
+                size_hint_y: None
+                font_size: '16sp'
+                height: '35sp'
+        
+        Label:
+            size_hint_y: None
+            height: '20dp'
+       
+        ToggleButton:
+            border: 10,10,10,10
+            size_hint_y: None
+            height: '30 dp'
+            id: withdraw
+            bold: True
+            text: 'Withdraw'
+        Label:
+            size_hint_y: None
+            height: '10dp'
+
+        ToggleButton:
+            border: 10,10,10,10
+            size_hint_y: None
+            height: '30 dp'
+            id: deposit
+            bold: True
+            text: 'Deposit'
+        
+        BoxLayout:
+            id: pp
+            size_hint_y: None
+            height: '40 dp'
+            Label:
+                id: leftl
+                size_hint_x: None
+                width: self.texture_size[0] + 4
+                text: 'Amount'
+                font_size: '16dp'
+                color: 0,0,0,1
+            Label:
+                size_hint: None,1
+                width: 2 + 0.25*pp.width-leftl.width
+                text: ''
+                font_size: '16dp'
+                color: 0,0,0,1
+            Label:
+                size_hint_x: None
+                width: self.texture_size[0]
+                font_size: '16dp'
+                text: 'Recipient address'
+                color: 0,0,0,1
+        
+        
+        BoxLayout:
+            size_hint_y: None
+            height: '40 dp'
+            TextInput:
+                id:aminput
+                size_hint: 0.25, 1
+                font_size: '16dp'
+                text: ''
+                multiline: False
+                hint_text: 'amount.'
+                padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+            TextInput:
+                id:addrinput
+                size_hint: 0.75, 1
+                font_size: '12dp'
+                text: ''
+                valign: 'middle'
+                multiline: False
+                hint_text: 'aoc address.'
+                padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+        Label:
+            size_hint_y: None
+            height: '20dp'
+        BoxLayout:
+            size_hint_y: None
+            height: '40 dp'
+            Label:
+                text: ''
+                size_hint: 0.4, 1
+                color: 0,0,0,1
+            Button:
+                background_color: (0.3, 0.8, 0.6, .5)
+                text: 'Send Token'
+                on_release: feedback.text = app.SendWithdrawDeposit()
+            Label:
+                text: ''
+                size_hint: 0.4, 1
+                color: 0,0,0,1
+        
+        Label:
+            id: feedback
+            text: ''
+            color: 0,0,0,1
+
+        Widget:
+            on_parent: dropdown.dismiss()
+
+        DropDown:
+            id: dropdown
+            on_select: app.SelectTokenToPay(args[1], 'WithdrawDepositToken')
+
+            Button:
+                text: 'EURO'
+                size_hint_y: None
+                height: '25dp'
+                font_size: '13dp'
+                on_release: dropdown.select('eur')
+
+            Button:
+                text: 'US Dollar'
+                size_hint_y: None
+                height: '25dp'
+                font_size: '13dp'
+                on_release: dropdown.select('usd')
+
+            Button:
+                text: 'Chinese Yuan'
+                size_hint_y: None
+                height: '25dp'
+                font_size: '13dp'
+                on_release: dropdown.select('rmb')
+        
+        
+        Widget:
+        
+            
+            

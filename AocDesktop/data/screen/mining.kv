@@ -1,0 +1,33 @@
+ShowcaseScreen:
+    name: 'Mining'
+    
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_y: None
+        height: '400dp'
+        
+        canvas:
+            Color:
+                rgb: (.7, .7, .7)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        
+        BoxLayout:
+            Label:
+                text: ''
+                size_hint: 0.25, 0.5
+                color: 0,0,0,1
+            ToggleButton:
+                border: 10,10,10,10
+                size_hint: 0.5, 0.5
+                id: mm
+                bold: True
+                text: 'Mining Tx Block'
+                on_press: app.MiningFunc(1) if mm.state == "down" else app.MiningFunc(0)
+            Label:
+                text: ''
+                size_hint: 0.25, 0.5
+                color: 0,0,0,1
+        Widget:
+            

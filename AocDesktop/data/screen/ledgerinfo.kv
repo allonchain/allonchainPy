@@ -1,0 +1,29 @@
+
+ShowcaseScreen:
+    name: 'LedgerInfo'
+    
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_y: None
+        height: 300 + ledgerg.height
+        
+        canvas:
+            Color:
+                rgb: (.7, .7, .7)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Label:
+        
+        Label:
+            id: ledgerg
+            size_hint_y: None
+            height: 50
+            font_size: '10dp'
+            text: app.LedgerInfoText()
+            color: 0,0,0,1
+            on_touch_down: ledgerg.text = app.LedgerInfoText()
+            
+
+        Widget:

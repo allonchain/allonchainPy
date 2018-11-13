@@ -1,0 +1,31 @@
+ShowcaseScreen:
+    name: 'Test'
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_y: None
+        height: 400
+        canvas:
+            Color:
+                rgb: (.7, .7, .7)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            text:'Test for transaction packing ability'
+            size_hint_y: None
+            height: '30dp'
+        
+        TextInput:
+            id:aminput
+            size_hint_y: None
+            height: '30dp'
+            font_size: '16sp'
+            text: ''
+            multiline: False
+            hint_text: 'tp/s'
+        
+        Button:
+            background_color: (0.3, 0.8, 0.6, .5)
+            text: 'TPS send'
+            on_release: app.testtps(aminput.text)
+        Widget:

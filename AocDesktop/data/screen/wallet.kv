@@ -1,0 +1,56 @@
+ShowcaseScreen:
+    name: 'Wallet'
+    BoxLayout:
+        orientation: "vertical"
+        id: walheight
+        size_hint_y: None
+        height: 400
+        canvas:
+            Color:
+                rgb: (.7, .7, .7)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            text:'Input your seed string to create Wallet'
+            size_hint_y: None
+            height: '30dp'
+        TextInput:
+            id:seedstr
+            size_hint_y: None
+            height: '80dp'
+            text: ''
+            font_size: '18dp'
+            hint_text: 'seed string.'
+            multiline: True
+            padding_x: [5,5]
+        
+        BoxLayout:
+            size_hint_y: None
+            height: '40 dp'
+            Label:
+                text: ''
+                size_hint: 0.2, 1
+                color: 0,0,0,1
+            Button:
+                background_color: (0.3, 0.8, 0.6, .5)
+                text: 'create wallet'
+                on_release: app.createwallet(seedstr.text)
+            Button:
+                background_color: (0.3, 0.8, 0.6, .5)
+                text: 'Login Wallet'
+                on_release: app.loginwallet()
+            Label:
+                text: ''
+                size_hint: 0.2, 1
+                color: 0,0,0,1
+        
+        GridLayout:
+            id: walletlist
+            size_hint_y: None
+            height: '40 dp'
+            cols: 1
+            spacing: '1dp'
+            padding: '5dp'
+        
+        Widget:

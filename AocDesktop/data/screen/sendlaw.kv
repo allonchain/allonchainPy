@@ -1,0 +1,92 @@
+
+ShowcaseScreen:
+    name: 'SendLaw'
+    
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_y: None
+        height: '400dp'
+        
+        canvas:
+            Color:
+                rgb: (.7, .7, .7)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            size_hint_y: None
+            height: '40 dp'
+            text: 'Law Type'
+            color: 0,0,0,1
+        BoxLayout:
+            size_hint_y: None
+            height: '40 dp'
+            ToggleButton:
+                border: 10,10,10,10
+                bold: True
+                text: 'Constitution Law'
+                group: 'g1'
+                on_press: app.sendlaw_1 = 0
+            
+            ToggleButton:
+                border: 10,10,10,10
+                bold: True
+                text: 'Common Law'
+                on_press: app.sendlaw_1 = 1
+                group: 'g1'
+        Label:
+            size_hint_y: None
+            height: '40 dp'
+            text: 'Law Name'
+            color: 0,0,0,1
+        TextInput:
+            id:lawnameinput
+            size_hint_y: None 
+            height: '40dp'
+            text: ''
+            font_size: '18dp'
+            hint_text: 'lawname.'
+            multiline: False
+            padding_x: [5,5]
+        
+        Label:
+            size_hint_y: None
+            height: '40 dp'
+            text: 'Law Content'
+            color: 0,0,0,1
+        TextInput:
+            id:lawcontentinput
+            size_hint_y: None
+            height: '100dp'
+            font_size: '18dp'
+            text: ''
+            multiline: True
+            hint_text: 'content.'
+            padding_x: [5,5]
+
+        Label:
+            size_hint_y: None
+            height: '10 dp'
+            text: ''
+            color: 0,0,0,1
+        
+        BoxLayout:
+            Label:
+                text: ''
+                size_hint: 0.4, 1
+                color: 0,0,0,1
+            Button:
+                background_color: (0.3, 0.8, 0.6, .5)
+                text: 'Send'
+                on_release: app.sendlaw()
+            Label:
+                text: ''
+                size_hint: 0.4, 1
+                color: 0,0,0,1
+
+        Label:
+            id: feedback
+            text: ''
+            color: 0,0,0,1
+
+    Widget:

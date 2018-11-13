@@ -1,0 +1,36 @@
+ShowcaseScreen:
+    name: 'Operation'
+    fullscreen: True
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            Button:
+                text: 'Send Law'
+                on_release: app.goto_screen(4)
+
+            Button:
+                text: 'Send Ownership'
+                on_release: app.goto_screen(5)
+            
+        BoxLayout:
+            Button:
+                text: 'Send Token'
+                on_release: app.goto_screen(8)
+            
+            Button:
+                text: 'Deposit/Withdraw'
+                on_release: app.goto_screen(9)
+        BoxLayout:
+            Button:
+                text: 'Ledger Info'
+                on_release: app.goto_screen(6)
+            Button:
+                text: 'Mining'
+                on_release: app.goto_screen(7)
+        BoxLayout:
+            Button:
+                text: 'Trade Broadcast'
+                on_release: app.goto_screen(10)
+            Button:
+                text: 'TEST'
+                on_release: app.goto_screen(11)

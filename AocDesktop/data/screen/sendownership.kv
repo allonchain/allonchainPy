@@ -1,0 +1,71 @@
+
+ShowcaseScreen:
+    name: 'SendOwnership'
+    
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_y: None
+        height: '450dp'
+        canvas:
+            Color:
+                rgb: (.7, .7, .7)
+            Rectangle:
+                size: self.size
+                pos: self.pos 
+        
+        Label:
+            size_hint_y: None
+            height: '2 dp'
+            text: ''
+            color: 0,0,0,1
+        
+        BoxLayout:
+            size_hint_y: None
+            height: '40dp'
+            Button:
+                background_color: (0.3, 0.8, 0.6, .5)
+                text: 'Send Ownership'
+                on_release: app.send_ownership_lawblock(0)
+            Button:
+                background_color: (0.3, 0.8, 0.6, .5)
+                text: 'Send Law Block'
+                on_release: app.send_ownership_lawblock(1)
+        
+        Label:
+            size_hint_y: None
+            height: '4 dp'
+            text: ''
+            color: 0,0,0,1
+
+        Button:
+            size_hint_y: None
+            height: '40dp'
+            background_color: (0.3, 0.8, 0.6, .5)
+            text: 'Payload List'
+            on_release: app.GetPayloadList()
+        
+        BoxLayout:
+            id: maincontent
+            orientation: 'vertical'
+            size_hint_y: None
+            height: payloadlist.height + 120
+            
+            TextInput:
+                id: showpayload
+                size_hint_y: None
+                height: '120dp'
+                font_size: '12dp'
+                multiline: True
+                text: ''
+                color: 0,0,0,1
+
+            GridLayout:
+                id: payloadlist
+                cols: 1
+                spacing: '1dp'
+                padding: '5dp'
+
+        Widget:
+
+
+        
